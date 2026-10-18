@@ -1,0 +1,29 @@
+===== RELATÓRIO DE INCIDENTE — CVTECH Lda. =====
+Data: Sun Oct 18 20:54:56 -01 2026
+--- CRONOLOGIA ---
+2026-10-18 20:20:15 INFO monitor iniciado
+2026-10-18 20:20:15 ERRO cvtech-sync não responde — CPU acima de 95%
+2026-10-18 20:28:48 INFO CPU normalizada — cvtech-sync.sh terminado
+Avisos registados: 232
+--- PROCESSOS cvtech AINDA ATIVOS ---
+mell         957  0.0  0.0   5080  3912 pts/0    S    20:20   0:02 /bin/bash /home/mell/incidente/cvtech-monitor.sh
+--- TOP 5 DE CPU APÓS A INTERVENÇÃO ---
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+mell         957  0.0  0.0   5080  3912 pts/0    S    20:20   0:02 /bin/bash /home/mell/incidente/cvtech-monitor.sh
+root           1  0.0  0.1  24212 15480 ?        Ss   20:05   0:00 /sbin/init
+root          47  0.0  0.2  58840 24896 ?        S<s  20:05   0:00 /usr/lib/systemd/systemd-journald
+mell        1060  0.0  0.0  83856  8080 pts/2    Sl+  20:20   0:00 tail -f /home/mell/incidente/servidor.log
+root          95  0.0  0.1  34772 12200 ?        Ss   20:05   0:00 /usr/lib/systemd/systemd-udevd
+--- CONCLUSÕES ---
+Causa: o processo cvtech-sync.sh (PID 955) ficou preso num ciclo infinito e
+consumiu cerca de 99,9% do CPU, o que tornou o servidor lento. Além disso, o
+cvtech-relatorio.sh (PID 956) ignorava o SIGTERM por causa do trap '' TERM.
+
+Ação: identifiquei o culpado com ps aux --sort=-%cpu, terminei o sync com
+kill (SIGTERM) e o monitor registou "CPU normalizada" às 20:30:29. O
+relatorio não obedeceu ao SIGTERM, por isso só o terminei com kill -9
+(SIGKILL), como último recurso.
+
+Recomendações: investigar porque é que o sync entrou em ciclo infinito,
+limitar o tempo de execução dos scripts, configurar alertas de CPU e
+rever scripts que ignoram o SIGTERM.

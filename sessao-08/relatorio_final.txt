@@ -1,0 +1,27 @@
+== Missão 1 ==
+C1-9D8672
+Comando: find arquivo -type f -name ".*"
+== Missão 2 ==
+C2-D14E71
+Total de linhas do log: 301 (wc -l logs/servidor.log)
+Linhas de ERRO: 42 (grep ERRO logs/servidor.log | wc -l)
+Comando: grep CRITICO logs/servidor.log
+== Missão 3 ==
+C3-BBA8CC
+Comando: chmod 640 docs/relatorio_rh.txt
+Nota: password do cofre obtida na Missão 3
+== Missão 4 ==
+Comando: sudo groupadd auditores
+Comando: sudo useradd -m -s /bin/bash -G auditores auditor
+uid=1004(auditor) gid=1008(auditor) groups=1008(auditor),1007(auditores)
+== Missão 5 ==
+C5-84E7DD
+Processo: indexador.sh, PID 1329, CPU 99.8%
+Identificação: ps aux --sort=-%cpu | head -n 3
+Comando: kill 1329 (SIGTERM, sem -9)
+== Missão 6 ==
+C6-24A3F4
+Comando: openssl enc -d -aes-256-cbc -pbkdf2 -in cofre/cofre.tar.gz.enc -out cofre/cofre.tar.gz
+Comando: tar -tzf cofre/cofre.tar.gz
+Comando: tar -xzf cofre/cofre.tar.gz -C cofre/restaurado
+Nota: password obtida na Missão 3

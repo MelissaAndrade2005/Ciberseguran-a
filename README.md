@@ -1,4 +1,4 @@
-# Segurança Linux & Ops — Portfólio de Melissa Andrade
+# Segurança Linux & Ops — Portfólio de Melissa Andrade Mendes
 
 Módulo do percurso Activation (Skodji Digital), 8 sessões, realizado em WSL2 (Ubuntu).
 

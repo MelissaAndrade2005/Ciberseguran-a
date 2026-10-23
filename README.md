@@ -4,7 +4,7 @@ Módulo do percurso Activation (Skodji Digital), 8 sessões, realizado em WSL2 (
 
 | Sessão | Tema | O que fiz |
 |---|---|---|
-| 01 | Introdução à Arquitetura Linux e Segurança do Sistema de Ficheiros | Explorei a estrutura de diretórios (FHS) e percebi o que cada pasta guarda |
+| 01 | Introdução à Arquitetura Linux e Segurança do Sistema de Ficheiros | Sessão introdutória ao módulo e à arquitetura Linux (sem entrega prática) |
 | 02 | Comandos Essenciais de Terminal e CLI | Naveguei no sistema e manipulei ficheiros e pastas pela linha de comandos |
 | 03 | Comandos Essenciais de Terminal e CLI (Parte 2) | Usei pipes, redirecionamento, `grep` e `wc` para filtrar e contar texto |
 | 04 | Gestão de Utilizadores e Grupos | Criei contas e grupos com `useradd` e `groupadd` |
